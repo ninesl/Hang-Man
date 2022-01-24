@@ -69,8 +69,16 @@ public class HangMan {
         System.out.println();//spacing
     }
     public static boolean checkWord(String allGuesses, String wordToCheck) { //TODO make sure word is the same
-                                                                             //
-        return false;
+        boolean isWordSoFar = true;
+        int counter = 0;
+        while(isWordSoFar && counter < wordToCheck.length()) {
+            if (!(allGuesses.indexOf(wordToCheck.charAt(counter)) > -1)) {
+                //false if allGuesses does not have all letters that wordToCheck contains
+                isWordSoFar = false;
+            }
+            counter++;
+        }
+        return isWordSoFar;
     }
     //returns true if won, false if lost
     public static boolean hangMan(String wordToGuess) {

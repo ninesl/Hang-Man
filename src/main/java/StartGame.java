@@ -1,5 +1,5 @@
 public class StartGame {
     public static void main(String[] args) {
-        HangMan.hangMan("grew");
+        HangMan.hangMan("greedy");
     }
 }
