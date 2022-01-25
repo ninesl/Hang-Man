@@ -1,10 +1,10 @@
 public class HangMan {
     //Graphics, hangman updating based of guesses
-    //Coming up with word, based off textfile within game
+    //Coming up with word, based off text file within game
 
     //no idea how to make this not as annoying
     //lives are equal to # of elements within FullMan
-    private static String []fullMan = {
+    private final static String []fullMan = {
             //_____ Each line is 5 long
             " ͟͟͟ \n" +
                     "|* *|\n" +
@@ -47,7 +47,7 @@ public class HangMan {
 
     private static void printGuesses(String allGuesses, String word) {
         char letterOnScreen = '_';
-        boolean correctGuesses = false;
+        //boolean correctGuesses = false;
         //Prints word with guesses shown
         System.out.println();//spacing
         for (int i = 0; i < word.length(); i++) {
@@ -61,14 +61,14 @@ public class HangMan {
         }
         System.out.println();//spacing
         //Prints all guesses so far
-        //to not print duplicate guesses i could make another string,
+        //to not print duplicate guesses I could make another string,
         //and only append the letter if it did not exist previously
         for (int g = 0; g < allGuesses.length(); g++) {
             System.out.print(allGuesses.charAt(g) + " ");
         }
         System.out.println();//spacing
     }
-    public static boolean checkWord(String allGuesses, String wordToCheck) { //TODO make sure word is the same
+    public static boolean checkWord(String allGuesses, String wordToCheck) {
         boolean isWordSoFar = true;
         int counter = 0;
         while(isWordSoFar && counter < wordToCheck.length()) {
