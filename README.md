@@ -29,11 +29,11 @@ I solved this issue by having a method that iterated through each character of t
 
 ```
 for (int i = 0; i < word.length(); i++) {
-    for (int g = 0; g < allGuesses.length(); g++) {
-		if (allGuesses.charAt(g) == word.charAt(i)) //makes sure to print duplicate letters
-			letterOnScreen = Character.toUpperCase(word.charAt(i));
-    }
-    System.out.print(letterOnScreen + " ");
-    letterOnScreen = '_';
+&nbsp;for (int g = 0; g < allGuesses.length(); g++) {
+&nbsp;&nbsp;if (allGuesses.charAt(g) == word.charAt(i)) //makes sure to print duplicate letters
+&nbsp;&nbsp;&nbsp;letterOnScreen = Character.toUpperCase(word.charAt(i));
+&nbsp;}
+&nbsp;System.out.print(letterOnScreen + " ");
+&nbsp;letterOnScreen = '_';
 }
 ```
