@@ -2,7 +2,7 @@
 
 Java command-line game that will play hangman with you until you win or the hang-man DIES (very high stakes)
 
-Reads a text file seperated by line. All words are case sensitive. Feel free to add or change the words you're guessing! The program will adjust based on how many words are in the file.
+Reads a text file seperated by line. All words are not case sensitive. Feel free to add or change the words you're guessing! The program will adjust based on how many words are in the file.
 
 StartGame.java contains the main() method which starts the game and reads off "words.txt" as mentioned above.
 
