@@ -4,6 +4,7 @@ public class HangMan {
 
     //no idea how to make this not as annoying
     //lives are equal to # of elements within FullMan
+    //the carriage return is used so that it "looks" like the arm is getting removed
     private final static String []fullMan = {
              //_____ Each line is 5 long
               " ͟͟͟ \n" +
@@ -13,7 +14,7 @@ public class HangMan {
             "\r<-|  ",  //2 left arm
             "\r<-|->",//3 right arm
             "\n ͞͞͞ ",  //4 waist
-            "\n|    ",  //5 left leg
+            "\n|   |",  //5 left leg
             "\r|   |" //6 right leg
     };
 
@@ -60,9 +61,8 @@ public class HangMan {
             letterOnScreen = '_';
         }
         System.out.println();//spacing
+
         //Prints all guesses so far
-        //to not print duplicate guesses I could make another string,
-        //and only append the letter if it did not exist previously
         for (int g = 0; g < allGuesses.length(); g++) {
             System.out.print(allGuesses.charAt(g) + " ");
         }
@@ -72,14 +72,15 @@ public class HangMan {
         boolean isWordSoFar = true;
         int counter = 0;
         while(isWordSoFar && counter < wordToCheck.length()) {
+            //false if allGuesses string does not contain a character that wordToCheck contains
             if (!(allGuesses.indexOf(wordToCheck.charAt(counter)) > -1)) {
-                //false if allGuesses does not have all letters that wordToCheck contains
                 isWordSoFar = false;
             }
-            counter++;
+            counter++;//used for checking through each letter of wordToCheck
         }
         return isWordSoFar;
     }
+
     //returns true if won, false if lost
     public static boolean hangMan(String wordToGuess) {
         //THE GAME
@@ -96,13 +97,14 @@ public class HangMan {
             printCurrentMan(lives); //print ASCII art based off # of lives left
             printGuesses(allGuesses, wordToGuess); //print guesses below art
             isFinishedWord = checkWord(allGuesses, wordToGuess);
+
             if(!isFinishedWord) {
                 currentGuess = getGuess();
                 if(!allGuesses.contains(String.valueOf(currentGuess))) { //So you can't double guess a letter
+                    allGuesses += currentGuess;
                     if (!hasLetter(wordToGuess, currentGuess)) {
                         lives--;
                     }
-                    allGuesses += currentGuess;
                 }
             }
             ConsoleGraphics.clearScreen();
