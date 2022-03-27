@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class InputParser { //could extend scanner????? polymorphism??????
+public class InputParser {
     //take in as a String, returns true if can be parsed, false if can't
     //stupid and convoluted? or genius
     //TODO add more wrappers as needed
@@ -30,7 +30,7 @@ public class InputParser { //could extend scanner????? polymorphism??????
      * Will keep prompting user until input can be parsed to dataType (int, double, etc.)
      * Does not parse the input, only will return is input COULD be parsed
      * Can be used by InputParser.getValidInput
-     */ //TODO fix this stupid description
+     */
     public static String getValidInput(String promptMessage, Object dataType) {
         return getValidInput(promptMessage, "That is an invalid input.", dataType);
     }

@@ -5,10 +5,10 @@ public class HangMan {
     //no idea how to make this not as annoying
     //lives are equal to # of elements within FullMan
     private final static String []fullMan = {
-            //_____ Each line is 5 long
-            " ͟͟͟ \n" +
-                    "|* *|\n" +
-                    " ͞͞͞ ",  //0 head
+             //_____ Each line is 5 long
+              " ͟͟͟ \n" +
+              "|* *|\n" +
+              " ͞͞͞ ",  //0 head
             "\n  |  ",    //1 torso
             "\r<-|  ",  //2 left arm
             "\r<-|->",//3 right arm
@@ -36,7 +36,7 @@ public class HangMan {
         String input = "";
         boolean isSingleLetter = false;
         while (!isSingleLetter) {
-            input = InputParser.getValidInput("Please enter your guess : ", failMessage, 'c');
+            input = InputParser.getValidInput("Please enter a letter to guess : ", failMessage, 'c');
             if (!Character.isLetter(input.charAt(0)))
                 System.out.println(failMessage);
             else
@@ -91,25 +91,22 @@ public class HangMan {
         String allGuesses = "";//all guesses get added onto here
         boolean isFinishedWord = false;
         //get guesses until you win or die... very high stakes
-        ConsoleGraphics.clearScreen();
+
         while (lives > 0 && !isFinishedWord) {
             printCurrentMan(lives); //print ASCII art based off # of lives left
             printGuesses(allGuesses, wordToGuess); //print guesses below art
             isFinishedWord = checkWord(allGuesses, wordToGuess);
             if(!isFinishedWord) {
                 currentGuess = getGuess();
-                if (!hasLetter(wordToGuess, currentGuess))
-                    lives--;
-                allGuesses += currentGuess;
+                if(!allGuesses.contains(String.valueOf(currentGuess))) { //So you can't double guess a letter
+                    if (!hasLetter(wordToGuess, currentGuess)) {
+                        lives--;
+                    }
+                    allGuesses += currentGuess;
+                }
             }
             ConsoleGraphics.clearScreen();
         }
-        String endScreen = "The word was " + wordToGuess +"\n";
-        if(isFinishedWord)
-            endScreen += "✔️You won!✔️";
-        else
-            endScreen += "\uD83D\uDC80Sorry, try again next time\uD83D\uDC80";
-        System.out.print(endScreen);
         return isFinishedWord;
     }
 }
