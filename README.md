@@ -28,6 +28,7 @@ The trickiest part when designing the behavior for checking guessed words was wh
 I solved this issue by having a method that iterated through each character of the word to guess and to print a "blank" if the letter did not exist in the allGuesses string, and to print the letter if there was a match.
 
 ```
+char letterOnScreen = '_';
 for (int i = 0; i < word.length(); i++) {
     for (int g = 0; g < allGuesses.length(); g++) {
 	if (allGuesses.charAt(g) == word.charAt(i)) //makes sure to print duplicate letters
