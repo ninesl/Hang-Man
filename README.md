@@ -30,8 +30,8 @@ I solved this issue by having a method that iterated through each character of t
 ```
 for (int i = 0; i < word.length(); i++) {
     for (int g = 0; g < allGuesses.length(); g++) {
-		if (allGuesses.charAt(g) == word.charAt(i)) //makes sure to print duplicate letters
-			letterOnScreen = Character.toUpperCase(word.charAt(i));
+	if (allGuesses.charAt(g) == word.charAt(i)) //makes sure to print duplicate letters
+		letterOnScreen = Character.toUpperCase(word.charAt(i));
     }
     System.out.print(letterOnScreen + " ");
     letterOnScreen = '_';
