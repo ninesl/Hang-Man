@@ -8,8 +8,8 @@ StartGame.java contains the main() method which starts the game and reads off "w
 
 ## Interesting problems within the program
 
-The trickiest part when designing the behavior for checking guessed words was when there was more than 1 letter in the same word.
-greedy, hello, balloon are examples of words with shared letters
+The trickiest part when designing the behavior for checking guessed words was when there was more than 1 letter in the same word.[^1]
+[^1]: greedy, hello, balloon are examples of words with shared letters
 
 A good solution for this was to concatenate a string of all guessed letters so far, and to check if the user had guessed that character or not already.
 
